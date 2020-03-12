@@ -39,7 +39,7 @@
         </ul>
         <transition name="fade">
             <div class="add" v-if="showAdd">
-                <input type="text" v-model="input" placeholder="输入内容">
+                <input type="text" v-model="input" placeholder="输入内容" autofocus>
                 <div>
                     <button @click="addItem">添加</button>
                     <button @click="showAdd=false">取消</button>
@@ -48,7 +48,8 @@
         </transition>
         <transition name="fade">
             <div class="update" v-if="toggle">
-                <input type="text" v-model="update.text" placeholder="输入内容">
+                <!-- 自动锁定对焦 -->
+                <input type="text" v-model="update.text" placeholder="输入内容" autofocus>
                 <div>
                     <button @click="updateItem">修改</button>
                     <button @click="toggle=false">取消</button>
