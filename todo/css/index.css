@@ -37,10 +37,16 @@ ul {
     font-size: 1.3em;
     height: 50px;
     line-height: 50px;
+    padding: 1rem 0 !important;
+}
+
+.top strong {
+    font-size: 0.7em;
 }
 
 .top p:first-child {
     margin-left: 10px;
+    font-size: 1.5em;
 }
 
 .top p:last-child {
@@ -65,7 +71,6 @@ ul {
     color: #013290;
     font-weight: 600;
 }
-
 .main .main-item {
     display: flex;
     justify-content: space-between;

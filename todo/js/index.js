@@ -10,8 +10,14 @@ let app = new Vue({
                 text: ''
             },
             toggle: false,
-            showAdd: false
+            showAdd: false,
+            day: 0,
+            month: 0
         }
+    },
+    mounted() {
+        this.initData()
+        this.initDate()
     },
     methods: {
         hint() {
@@ -89,9 +95,52 @@ let app = new Vue({
                     console.log(data)
                     this.items = data
                 })
-        }
+        },
+        initDate() {
+            let date = new Date()
+            this.day = date.getDate()
+            this.month = date.getMonth() + 1
+            switch (date.getMonth() + 1) {
+                case 1:
+                    this.month = 'Jan'
+                    break;
+                case 2:
+                    this.month = 'Feb'
+                    break;
+                case 3:
+                    this.month = 'Mar'
+                    break;
+                case 4:
+                    this.month = 'Apr'
+                    break;
+                case 5:
+                    this.month = 'May'
+                    break;
+                case 6:
+                    this.month = 'Jun'
+                    break;
+                case 7:
+                    this.month = 'Jul'
+                    break;
+                case 8:
+                    this.month = 'Aug'
+                    break;
+                case 9:
+                    this.month = 'Sep'
+                    break;
+                case 10:
+                    this.month = 'Oct'
+                    break;
+                case 11:
+                    this.month = 'Nov'
+                    break;
+                case 12:
+                    this.month = 'Dec'
+                    break;
+                default:
+                    break;
+            }
+        },
     },
-    mounted() {
-        this.initData()
-    }
+
 })
