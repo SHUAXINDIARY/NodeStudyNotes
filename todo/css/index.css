@@ -1,0 +1,121 @@
+[v-cloak] {
+    display: none;
+}
+
+/* 重置 */
+body,
+ul,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+#app {
+    max-width: 780px;
+    background-color: #f7fdfe;
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
+}
+
+#app .top,
+.main,
+.add {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    color: #013290;
+    font-weight: 600;
+    font-size: 1.3em;
+    height: 50px;
+    line-height: 50px;
+}
+
+.top p:last-child {
+    font-size: 1.5em;
+}
+
+.main li {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background-color: #ffffff;
+    margin-top: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 5px 12px 0px #e2e6e8;
+    border-radius: 10px;
+    color: #013290;
+    font-weight: 600;
+}
+
+.main div {
+    height: 100%;
+}
+
+.main li .text {
+    width: 60%;
+}
+
+.main li .btn {
+    display: inline-block;
+    background-color: #013290;
+    color: #ffffff;
+    width: 50px;
+}
+
+.add,
+.update {
+    height: 30%;
+    width: 90%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 5px 12px 0px #e2e6e8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.add input,
+.update input {
+    border: none;
+    outline: none;
+    font-size: 1.5em;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.add div,
+.update div {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.add button,
+.update button {
+    border: none;
+    height: 50px;
+    width: 70px;
+    background-color: #013290;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1em;
+    text-align: center;
+    line-height: 50px;
+}
