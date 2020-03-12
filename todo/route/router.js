@@ -16,6 +16,7 @@ const router = (...rest) => {
     let res = rest[1]
     let method = req.method
     switch (method) {
+        // 获取数据
         case 'GET':
             if (req.url === '/getData') {
                 let data = JSON.stringify(items)
@@ -25,6 +26,7 @@ const router = (...rest) => {
                 until.resErr(res)
             }
             break;
+        // 添加数据
         case 'POST':
             if (req.url === '/addData') {
                 req.setEncoding('utf8')
@@ -45,6 +47,7 @@ const router = (...rest) => {
                 until.resErr(res)
             }
             break;
+        // 修改数据
         case 'PUT':
             if (req.url === '/updateData') {
                 req.setEncoding('utf8')
@@ -65,6 +68,7 @@ const router = (...rest) => {
                 until.resErr(res)
             }
             break;
+        // 删除数据
         case 'DELETE':
             if (req.url === '/delData') {
                 req.setEncoding('utf8')
