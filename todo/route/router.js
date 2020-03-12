@@ -1,10 +1,10 @@
 const until = require('../until/resStatic')
 
 let items = [{
-    index: 1,
+    index: 0,
     text: '写作业',
 }, {
-    index: 2,
+    index: 1,
     text: '复习'
 }]
 let succ = {
