@@ -39,6 +39,10 @@ ul {
     line-height: 50px;
 }
 
+.top p:first-child {
+    margin-left: 10px;
+}
+
 .top p:last-child {
     font-size: 1.5em;
 }
@@ -50,12 +54,15 @@ ul {
     background-color: #ffffff;
     margin-top: 1rem;
     text-align: center;
-    display: flex;
-    justify-content: space-between;
-    box-shadow: 0 5px 12px 0px #e2e6e8;
+    box-shadow: 0 10px 15px 5px #e2e6e8;
     border-radius: 10px;
     color: #013290;
     font-weight: 600;
+}
+
+.main .main-item {
+    display: flex;
+    justify-content: space-between;
 }
 
 .main div {
@@ -72,6 +79,7 @@ ul {
     color: #ffffff;
     width: 50px;
 }
+
 
 .add,
 .update {
@@ -118,4 +126,15 @@ ul {
     font-size: 1em;
     text-align: center;
     line-height: 50px;
+}
+
+/* 控制过度显示动画 */
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
 }
