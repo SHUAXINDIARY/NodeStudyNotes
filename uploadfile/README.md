@@ -13,7 +13,7 @@ const formidable = require('formidable')
 let main=(req,res)=>{
     // 创建from对象
     const form = new formidable.IncomingForm()
-    // 设置输出目录
+    // 设置输出目录  img目录
     form.uploadDir = path.join(__dirname, 'img')
     // 存储时保持和上传的文件一样的扩展
     form.keepExtensions = true
