@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="top">
+            <p>{{day}}/<strong>{{month}}</strong> </p>
+            <p @click="showAdd=true">+</p>
+        </div>
+        <ul class="main">
+            <!-- 过度组件只能包裹一个元素 -->
+            <transition name="fade" v-for="(item,index) in items" :key="index">
+                <li v-if="items.length!=0" class="main-item">
+                    <span class="text">
+                        {{item.text}}
+                    </span>
+                    <div>
+                        <span @click="del(item)" class="btn">
+                            删除
+                        </span>
+                        <span class="btn" @click="toggle=true;update.text=item.text;update.index=item.index">
+                            修改
+                        </span>
+                    </div>
+                </li>
+            </transition>
+            <transition name="fade">
+                <li v-if="items.length===0" class="note" @click="showAdd=true">
+                    快点创建项目吧
+                </li>
+            </transition>
+        </ul>
+        <transition name="fade">
+            <div class="add" v-if="showAdd">
+                <input type="text" v-model="input" placeholder="输入内容" autofocus>
+                <div>
+                    <button @click="addItem">添加</button>
+                    <button @click="showAdd=false">取消</button>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade">
+            <div class="update" v-if="toggle">
+                <!-- 自动锁定对焦 -->
+                <input type="text" v-model="update.text" placeholder="输入内容" autofocus>
+                <div>
+                    <button @click="updateItem">修改</button>
+                    <button @click="toggle=false">取消</button>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <script crossorigin="anonymous" integrity="sha384-9u9lzb/hr8e14GLHe5TEOrTiH3Qtw5DX2Zw9X/g7cqj81W2McEMx5CKOszxdb8jg"
+        src="https://lib.baomitu.com/vue/2.6.10/vue.js"></script>
+    <script src="../js/index.js"></script>
+</body>
+
+</html>
