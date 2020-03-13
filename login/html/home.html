@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../assets/iconfont.css">
+</head>
+
+<body>
+    <!-- 提示框 -->
+    <div class="hint" id="hint">
+        <div id="text"></div>
+    </div>
+    <!-- 登陆表单 -->
+    <div class="container">
+        <div class="bg">
+            <img src="../img/bg.svg" alt="背景">
+        </div>
+        <div class="form">
+            <h1>登陆系统</h1>
+            <div class="input" id="input">
+                <div class="shuru" id="name">
+                    <i class="iconfont icon--yonghu"></i>
+                    <input type="text" name="name" placeholder="输入账号">
+                </div>
+                <div class="shuru" id="psw">
+                    <i class="iconfont icon--suo-guanbi"></i>
+                    <input type="password" name="psw" placeholder="输入密码">
+                </div>
+                <button id="btn">登陆</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let btn = document.querySelector('#btn')
+        let name = document.getElementsByName('name')[0]
+        let psw = document.getElementsByName('psw')[0]
+        let hint = document.querySelector('#hint')
+        // 改变输入框边框颜色
+        name.onfocus = () => {
+            document.querySelector('#name').style.borderColor = '#5f39c6'
+            document.querySelector('#name').style.transition = 'all 0.5s'
+        }
+        name.onblur = () => {
+            document.querySelector('#name').style.borderColor = 'lightgray'
+        }
+        psw.onfocus = () => {
+            document.querySelector('#psw').style.borderColor = '#5f39c6'
+            document.querySelector('#psw').style.transition = 'all 0.5s'
+        }
+        psw.onblur = () => {
+            document.querySelector('#psw').style.borderColor = 'lightgray'
+        }
+        // 装载提示内容
+        let toggleHint = (str) => {
+            document.querySelector('#text').textContent = str
+        }
+        // 关闭提示面板
+        let close = () => {
+            hint.style.opacity = '0';
+            hint.style.transition = 'opacity 0.3s';
+        }
+        hint.onclick = () => {
+            close()
+        }
+        // 提交表单
+        btn.onclick = () => {
+            console.log(document.getElementsByName('name')[0].value)
+            let data = {
+                name: name.value,
+                psw: psw.value,
+            }
+            fetch('http://localhost:3000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    // 通过json传递数据
+                    body: JSON.stringify(data)
+                })
+                .then(res => {
+                    return res.json()
+                })
+                .then(data => {
+                    console.log(data)
+                    // 显示提示面板
+                    hint.style.opacity = '10';
+                    hint.style.zIndex = '100';
+                    // 填充返回的内容
+                    toggleHint(data.msg)
+                    // 清空输入内容 
+                    name.value = ''
+                    psw.value = ''
+                })
+        }
+    </script>
+</body>
+
+</html>
