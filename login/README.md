@@ -44,3 +44,12 @@ let main=(req,res)=>{
 
 # 效果图
 ![效果图](./img/one.png)
+
+# 运行
+```shell
+# 安装依赖
+npm i
+# 进入该目录运行项目
+node index.js
+# 打开html目录下的html文件即可
+```
