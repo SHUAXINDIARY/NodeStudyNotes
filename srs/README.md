@@ -48,10 +48,9 @@ fs.stat(path,(err,stat)=>{
 
 # 运行
 ```shell
-# 进入该目录
-# 安装依赖
-npm i 
-# 运行
+# 进入根目录安装依赖
+npm i
+# 进入该项目目录运行项目
 node index.js
 # 打开浏览器输入 http://localhost:3000/index.html
 ```

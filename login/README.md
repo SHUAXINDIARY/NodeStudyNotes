@@ -47,9 +47,9 @@ let main=(req,res)=>{
 
 # 运行
 ```shell
-# 安装依赖
+# 进入根目录安装依赖
 npm i
-# 进入该目录运行项目
+# 进入该项目目录运行项目
 node index.js
 # 打开html目录下的html文件即可
 ```
