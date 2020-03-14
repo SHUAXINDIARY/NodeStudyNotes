@@ -1,6 +1,6 @@
 # TODO-数据库版本
 - 改进之前todo项目，将数据存储到mongodb
-- 简化操作，去除静态服务功能，node设置响应头，域解决跨域问题
+- 简化操作，去除静态服务功能，node设置响应头，解决跨域问题
 - 使用[mongoose](http://www.mongoosejs.net/)来操作 [mongodb](https://www.mongodb.com/)
 
 # 目录
