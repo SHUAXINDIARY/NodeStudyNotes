@@ -6,10 +6,12 @@ const getAll = () => {
     return all
 }
 // 查找所有数据
-const findAll = async () => {
+const findAll = async (res) => {
     let items = await Tasks.find()
     // 本地保存一份
     all = items
+    let data = JSON.stringify(items)
+    res.end(data)
     console.log('查找完成');
 }
 // 插入数据

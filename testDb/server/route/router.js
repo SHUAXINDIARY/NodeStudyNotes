@@ -17,9 +17,7 @@ const router = (...rest) => {
         // 获取数据
         case 'GET':
             if (req.url === '/getData') {
-                taskCon.findAll()
-                let data = JSON.stringify(taskCon.getAll())
-                res.end(data)
+                taskCon.findAll(res)
             } else {
                 resErr(res)
             }
