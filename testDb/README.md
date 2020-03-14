@@ -2,15 +2,16 @@
 - 改进之前todo项目，将数据存储到mongodb
 - 简化操作，去除静态服务功能，node设置响应头，域解决跨域问题
 - 使用[mongoose](http://www.mongoosejs.net/)来操作 [mongodb](https://www.mongodb.com/)
+
 # 目录
 - client-前端部分
 - server-后端部分
 
 ## 子目录-server
-- controller-对数据库进行CURD操作
-- model-生成集合
+- controller-存储对数据库进行CURD操作的文件
+- model-对应数据库的集合
 - route-路由文件
-- database-链接数据库
+- database-连接数据库相关
 
 # 细节
 - 设置跨域
