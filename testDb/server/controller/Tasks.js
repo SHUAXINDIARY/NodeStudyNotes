@@ -8,12 +8,14 @@ const getAll = () => {
 // 查找所有数据
 const findAll = async () => {
     let items = await Tasks.find()
+    // 本地保存一份
     all = items
     console.log('查找完成');
 }
 // 插入数据
 const insert = async (str) => {
     let item = {
+        // 第一条文档?index为0:index为上一条文档的index+1
         index: all.length == 0 ? 0 : all[all.length - 1].index + 1,
         text: str
     }
