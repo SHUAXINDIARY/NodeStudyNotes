@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./assets/iconfont.css">
+</head>
+
+<body>
+    <!-- 提示框 -->
+    <div class="hint" id="hint">
+        <div id="text"></div>
+    </div>
+    <!-- 登陆表单 -->
+    <div class="container">
+        <div class="bg">
+            <img src="./img/bg.svg" alt="背景">
+        </div>
+        <div class="form">
+            <h1>登陆系统</h1>
+            <div class="input" id="input">
+                <div class="shuru" id="name">
+                    <i class="iconfont icon--yonghu"></i>
+                    <input type="text" name="name" placeholder="输入账号">
+                </div>
+                <div class="shuru" id="psw">
+                    <i class="iconfont icon--suo-guanbi"></i>
+                    <input type="password" name="psw" placeholder="输入密码">
+                </div>
+                <div class="btn">
+                    <button id="login">登陆</button>
+                    <button id="register">注册</button>
+                </div>
+                <button id="testToken">验证token</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let login = document.querySelector('#login')
+        let register = document.querySelector('#register')
+        let testToken = document.querySelector('#testToken')
+
+        let name = document.getElementsByName('name')[0]
+        let psw = document.getElementsByName('psw')[0]
+        let hint = document.querySelector('#hint')
+        // 改变输入框边框颜色
+        name.onfocus = () => {
+            document.querySelector('#name').style.borderColor = '#5f39c6'
+            document.querySelector('#name').style.transition = 'all 0.5s'
+        }
+        name.onblur = () => {
+            document.querySelector('#name').style.borderColor = 'lightgray'
+        }
+        psw.onfocus = () => {
+            document.querySelector('#psw').style.borderColor = '#5f39c6'
+            document.querySelector('#psw').style.transition = 'all 0.5s'
+        }
+        psw.onblur = () => {
+            document.querySelector('#psw').style.borderColor = 'lightgray'
+        }
+        // 装载提示内容
+        let toggleHint = (str) => {
+            document.querySelector('#text').textContent = str
+        }
+        // 关闭提示面板
+        let close = () => {
+            hint.style.opacity = '0';
+            hint.style.transition = 'opacity 0.3s';
+        }
+        hint.onclick = () => {
+            close()
+        }
+        let token = ''
+        let sendReq = (api) => {
+            let data = {
+                name: name.value,
+                psw: psw.value,
+            }
+            fetch('http://localhost:3000/user2' + api, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(res => {
+                    return res.json()
+                })
+                .then(data => {
+                    console.log(data)
+                    // 显示提示面板
+                    hint.style.opacity = '10';
+                    hint.style.zIndex = '100';
+                    // 填充返回的内容
+                    toggleHint(data.msg)
+                    token = data.token
+                    psw.value = ''
+                })
+        }
+        // 注册
+        register.onclick = () => {
+            sendReq('/register')
+        }
+        // 登陆
+        login.onclick = () => {
+            sendReq('/login')
+        }
+        // 测试token
+        testToken.onclick = () => {
+            fetch('http://localhost:3000/user2/testToken', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        token: token
+                    })
+                })
+                .then(res => {
+                    return res.json()
+                })
+                .then(data => {
+                    console.log(data)
+                    toggleHint(data.msg)
+                })
+        }
+    </script>
+</body>
+
+</html>

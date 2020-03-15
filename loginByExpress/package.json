@@ -1,0 +1,18 @@
+{
+  "name": "loginbyexpress",
+  "version": "1.0.0",
+  "description": "- 使用express完成前后端分离的登陆\r - 使用JWT完成身份认证\r - 使用bcrypt进行用户密码的加密",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
