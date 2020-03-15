@@ -39,3 +39,12 @@ node xxx.js
   }
 ...
 ```
+
+# 运行
+```shell
+# 进入该目录
+# 安装依赖
+npm i
+# 运行
+npm start
+```
