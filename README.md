@@ -22,3 +22,4 @@ npm i
 
 >2020/3/14
 - testMiddleware-初探中间件程序
+- srsByConnect-使用connect自带的中间件做静态文件服务
