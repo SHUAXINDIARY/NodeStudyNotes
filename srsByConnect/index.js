@@ -1,11 +1,12 @@
 const connect = require('connect')
 const serStatic = require('serve-static')
 const bodyParser = require('body-parser')
+const compression = require('compression')
 const router = require('./route/router').router
 
 const app = connect()
-
 app
+    .use(compression())
     .use(bodyParser.json({ 'Content-Type': 'application/json' }))
     .use(serStatic(__dirname + '/public/', { '/': 'home.html' }))
     .use((req, res) => {
