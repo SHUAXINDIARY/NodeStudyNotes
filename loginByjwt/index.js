@@ -19,11 +19,6 @@ app
     // 路由
     .use('/user', userRouter)
     .use('/user2', user2Router)
-// .use((req, res) => {
-//     res.json({
-//         msg: 'hi'
-//     })
-// })
 
 app.listen('3000', () => {
     console.log('服务启动')
