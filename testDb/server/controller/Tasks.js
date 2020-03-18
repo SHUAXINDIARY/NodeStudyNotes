@@ -17,6 +17,7 @@ const findAll = async (res) => {
 // 插入数据
 const insert = async (str) => {
     let item = {
+        _id: all.length == 0 ? 0 : all[all.length - 1].index + 1,
         // 第一条文档?index为0:index为上一条文档的index+1
         index: all.length == 0 ? 0 : all[all.length - 1].index + 1,
         text: str
