@@ -41,6 +41,9 @@
 >2020/3/17
 - testRenderExcel-读取Excel的内容
 
+>2020/5/14
+- todo-添加对nginx配置练习
+
 ## Install
 
 ```sh

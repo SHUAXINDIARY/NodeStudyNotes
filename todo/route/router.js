@@ -15,6 +15,7 @@ const router = (...rest) => {
     let req = rest[0]
     let res = rest[1]
     let method = req.method
+    console.log(`req.url=${req.url}`)
     switch (method) {
         // 获取数据
         case 'GET':
@@ -99,6 +100,11 @@ const router = (...rest) => {
             }
             break;
         default:
+            let obj = {
+                code: -1,
+                msg: 'api不存在'
+            }
+            res.end(JSON.stringify(obj))
             break;
     }
 }

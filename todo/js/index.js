@@ -12,7 +12,8 @@ let app = new Vue({
             toggle: false,
             showAdd: false,
             day: 0,
-            month: 0
+            month: 0,
+            baseUrl: 'http://localhost:3000/'
         }
     },
     mounted() {
@@ -29,7 +30,7 @@ let app = new Vue({
         updateItem() {
             if (this.hint) {
                 let _this = this
-                fetch('http://localhost:3000/updateData', {
+                fetch('/apis/updateData', {
                     method: 'PUT',
                     body: JSON.stringify(_this.update)
                 })
@@ -48,7 +49,7 @@ let app = new Vue({
         del(item) {
             if (this.hint()) {
                 let _this = this
-                fetch('http://localhost:3000/delData', {
+                fetch('/apis/delData', {
                     method: 'DELETE',
                     body: item.index
                 })
@@ -66,7 +67,7 @@ let app = new Vue({
         addItem() {
             let _this = this
             console.log(_this.input)
-            fetch('http://localhost:3000/addData', {
+            fetch('/apis/addData', {
                 method: 'POST',
                 body: _this.input
             })
@@ -84,7 +85,8 @@ let app = new Vue({
         },
         // 初始化数据
         initData() {
-            fetch('http://localhost:3000/getData', {
+            // fetch('/getData', {
+            fetch('/apis/getData', {
                 method: 'GET'
             })
                 .then((res) => {
